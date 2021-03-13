@@ -1,11 +1,9 @@
 {
-  "name": "OPERATOR NAME",
-  "description": "DESCRIPTION",
-  "tags": ["template"],
+  "name": "fastq_to_counts",
+  "description": "Perform count quantification on fastq files with Salmon",
+  "tags": ["genomics", "transcriptomics", "rna-seq", "fastq"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/OPERATOR_NAME"],
-  "container": "tercen/CONTAINER_NAME:TAG",
-  "isWebApp": false
+  "urls": ["https://github.com/tercen/fastq_to_counts_docker_operator"],
+  "container": "tercen/fastq_to_counts_operator"
 }
-
 
