@@ -12,7 +12,7 @@ RUN salmon index -t Homo_sapiens.GRCh38.cdna.all.fa.gz -i hsapiens_index
 USER root
 WORKDIR /operator
 
-RUN git clone https://github.com/tercen/fastq_to_counts_operator
+RUN git clone https://github.com/tercen/fastq_to_counts_operator.git
 
 WORKDIR /operator/fastq_to_counts_operator
 
