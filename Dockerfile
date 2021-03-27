@@ -20,14 +20,7 @@ WORKDIR /operator/fastq_to_counts_operator
 RUN echo 1.1.11.0 && git pull
 RUN git checkout
 
-#RUN R -e "renv::restore(confirm=FALSE)"
+RUN R -e "renv::restore(confirm=FALSE)"
 
 ENTRYPOINT [ "R","--no-save","--no-restore","--no-environ","--slave","-f","main.R", "--args"]
 CMD [ "--taskId", "someid", "--serviceUri", "https://tercen.com", "--token", "sometoken"]
-
-
-
-
-
-
-
