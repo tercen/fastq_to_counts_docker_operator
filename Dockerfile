@@ -1,4 +1,4 @@
-FROM tercen/dartrusttidy:1.0.1
+FROM tercen/dartrusttidy:travis-17
 
 # Get Salmon binaries and add them to the PATH
 RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.4.0/salmon-1.4.0_linux_x86_64.tar.gz
@@ -17,8 +17,8 @@ RUN git clone https://github.com/tercen/fastq_to_counts_operator.git
 
 WORKDIR /operator/fastq_to_counts_operator
 
-RUN echo 1.1.11.0 && git pull
-RUN echo 1.1.11.0 && git checkout
+RUN echo 1.1.11.2 && git pull
+RUN echo 1.1.11.2 && git checkout
 
 RUN R -e "install.packages('renv')"
 RUN R -e "renv::restore(confirm=FALSE)"

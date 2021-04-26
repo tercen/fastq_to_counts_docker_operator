@@ -4,7 +4,7 @@
   "tags": ["genomics", "transcriptomics", "rna-seq", "fastq"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/fastq_to_counts_docker_operator"],
-  "container": "fcadete/fastq_to_counts_operator:0.0.1",
+  "container": "fcadete/fastq_to_counts_operator:0.0.2",
   "properties": [
     {
     "kind": "EnumeratedProperty",
