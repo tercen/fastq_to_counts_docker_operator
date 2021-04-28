@@ -17,8 +17,8 @@ RUN git clone https://github.com/tercen/fastq_to_counts_operator.git
 
 WORKDIR /operator/fastq_to_counts_operator
 
-RUN echo 1.1.11.2 && git pull
-RUN echo 1.1.11.2 && git checkout
+RUN echo 1.1.11.3 && git pull
+RUN echo 1.1.11.3 && git checkout
 
 RUN R -e "install.packages('renv')"
 RUN R -e "renv::restore(confirm=FALSE)"
