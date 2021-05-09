@@ -13,7 +13,7 @@ Input projection| Description
 | Input parameters           | Description                                                                                 |
 | -------------------------- | ------------------------------------------------------------------------------------------- |
 | `paired-end`                | "yes" or "no", specifying whether the sequencing was paired end or not |
-
+| `species`                   | "H. sapiens" or "M. musculus", the species to map the transcripts to |
 
 Output relations| Description
 ---|---
@@ -21,11 +21,12 @@ Output relations| Description
 `Length`                | numeric, the length of the transcript
 `EffectiveLength`                | numeric, the effective transcript length
 `TPM` | numeric, the number of transcripts per million reads
-`NumReads` | numeric, salmon’s estimate of the number of reads mapping to each transcript 
+`NumReads` | numeric, salmon’s estimate of the number of reads mapping to each transcript
 
 ##### Details
 The output relations let can then be combined with other samples to perform analysis using the DESeq2 operator or the single-cell RNA-seq operators.
 
+_H. sapiens_ transcriptome taken from ["Ensembl release 103"](http://ftp.ensembl.org/pub/release-103/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz).
 
 #### References
 Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature Methods.

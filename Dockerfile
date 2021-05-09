@@ -10,6 +10,11 @@ ENV PATH="/salmon-latest_linux_x86_64/bin:${PATH}"
 RUN wget http://ftp.ensembl.org/pub/release-103/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
 RUN salmon index -t Homo_sapiens.GRCh38.cdna.all.fa.gz -i hsapiens_index
 
+# Get M. musculus cDNA FASTA and index it
+RUN wget http://ftp.ensembl.org/pub/release-103/fasta/mus_musculus/cdna/Mus_musculus.GRCm39.cdna.all.fa.gz
+RUN salmon index -t Mus_musculus.GRCm39.cdna.all.fa.gz -i mmusculus_index
+
+
 USER root
 WORKDIR /operator
 
@@ -17,8 +22,8 @@ RUN git clone https://github.com/tercen/fastq_to_counts_operator.git
 
 WORKDIR /operator/fastq_to_counts_operator
 
-RUN echo 1.1.11.3 && git pull
-RUN echo 1.1.11.3 && git checkout
+RUN echo 1.1.11.4 && git pull
+RUN echo 1.1.11.4 && git checkout
 
 RUN R -e "install.packages('renv')"
 RUN R -e "renv::restore(confirm=FALSE)"
