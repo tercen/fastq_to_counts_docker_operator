@@ -1,26 +1,37 @@
-# Template Docker Operator
+# Quantify gene expression from counts with Salmon
 
-The Template Docker operator is a template repository for the creation of docker operators in Tercen.
+##### Description
+`FastQ to Counts` takes in fastq files from one RNA-seq sample and processes them using Salmon. It then outputs the gene expression levels for each _H. sapiens_ gene.
 
-More information on how to develop such an operator can be found in the [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
+##### Usage
 
-Checklist before building the image:
+Input projection| Description
+---|---
+`column names`   | character, documentId corresponding to the files to quantify
 
-* For all operators
-    + Replace repository URL
-    + Replace version number in files
 
-* For R operators
-    + isWebApp: false
+| Input parameters           | Description                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| `paired-end`                | "yes" or "no", specifying whether the sequencing was paired end or not |
 
-* For Shiny operators
-    + isWebApp: true
 
-* Build the image
+Output relations| Description
+---|---
+`Name` | character, the Ensembl transcript ID
+`Length`                | numeric, the length of the transcript
+`EffectiveLength`                | numeric, the effective transcript length
+`TPM` | numeric, the number of transcripts per million reads
+`NumReads` | numeric, salmon’s estimate of the number of reads mapping to each transcript 
 
-```bash
-VERSION=0.10.0.1
-docker build -t tercen/shiny_docker_operator:$VERSION .
-docker push tercen/shiny_docker_operator:$VERSION
-git add -A && git commit -m "$VERSION" && git tag  $VERSION  && git push && git push --tags
-```
+##### Details
+The output relations let can then be combined with other samples to perform analysis using the DESeq2 operator or the single-cell RNA-seq operators.
+
+
+#### References
+Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature Methods.
+
+["Salmon website"](https://combine-lab.github.io/salmon/)
+
+##### See Also
+
+#### Examples
